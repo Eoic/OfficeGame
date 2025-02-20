@@ -54,12 +54,15 @@ cover/
 *.mo
 *.pot
 
-# Django stuff:
+# Django stuff
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 dev/static
 
-# Ruff stuff:
+# Ruff stuff
 .ruff_cache/
+
+# Other
+.DS_Store
