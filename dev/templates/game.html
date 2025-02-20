@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Shooter Game</title>
+</head>
+<body class="game">
+    <div id="layer3D" class="screen"></div>
+    <div id="layer2D" class="screen">
+        <label class="room-name">{{ server }}</label>
+        <label class="player-name">{{ player }}</label>
+        <input id="room" value="{{ server }}" disabled hidden>
+        <input id="player" value="{{ request.session.session_key }}" disabled hidden>
+
+        <div class="panel">
+            <div class="team">
+
+            </div>
+            <div class="team">
+
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'OS.build.js' %}"></script>
+</body>
+</html>

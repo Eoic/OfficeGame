@@ -1,0 +1,21 @@
+@import "./menu.scss";
+@import "./game.scss";
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/montserrat/montserrat-wght.ttf");
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    color: #ffffff;
+    user-select: none;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.hidden {
+    display: none !important;
+}

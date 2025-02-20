@@ -1,0 +1,66 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Office Shooter MAIN MENU</title>
+    </head>
+    <body class="menu">
+        <div id="layer2D" class="container">
+            <div class="menu">
+                <div class="opt" style="pointer-events: none">Hello {{ player }},</div>
+                <div class="opt" evt="menuSelect" data-panel="createRoomPanel">CREATE ROOM</div>
+                <div class="opt" evt="menuSelect" data-panel="joinRoomPanel">JOIN ROOM</div>
+                <div class="opt" evt="menuSelect" data-panel="playerPanel">PLAYER</div>
+            </div>
+
+            <div class="menu-panel">
+                <div id="createRoomPanel" class="panel {% if panel_open == 'room_create' %}{% else %}hidden{% endif %}">
+                    <label>ROOM PASSCODE</label>
+                    <input type="text">
+                    <label class="error">
+                        {% if error and error.type == 'room_create' %}
+                            {{ error.message }}
+                        {% endif %}
+                    </label>
+                    <button evt="createRoom">CREATE ROOM</button>
+                </div>
+                <div id="joinRoomPanel" class="panel {% if panel_open == 'room_join' %}{% else %}hidden{% endif %}">
+                    <label>ROOM PASSCODE</label>
+                    <input type="text" value="{% if player.room %}{{ player.room.passcode }}{% endif %}">
+                    <label class="error">
+                        {% if error and error.type == 'room_join' %}
+                            {{ error.message }}
+                        {% endif %}
+                    </label>
+                    <button evt="joinRoom">JOIN ROOM</button>
+                </div>
+                <div id="playerPanel" class="panel {% if panel_open == 'player' %}{% else %}hidden{% endif %}">
+                    <label>PLAYER NAME</label>
+                    <input type="text" value="{{ player }}">
+                    <button evt="updatePlayer">SAVE PLAYER</button>
+                </div>
+                <div id="playerPanel" class="panel {% if panel_open == 'game' %}{% else %}{% endif %}">
+                    <label>GAME ROOM</label>
+                    <div class="teams">
+                        <div class="team">
+                            <label>TEAM RED</label>
+                            <button evt="updatePlayer">JOIN TEAM</button>
+                        </div>
+                        <div class="team">
+                            <label>TEAM BLUE</label>
+                            <button evt="updatePlayer">JOIN TEAM</button>
+                        </div>
+                    </div>
+                    <input type="text" value="{{ player }}">
+                    <button evt="updatePlayer">PLAY</button>
+                </div>
+            </div>
+        </div>
+
+        {% render_bundle 'game' %}
+    </body>
+</html>

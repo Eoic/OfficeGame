@@ -1,0 +1,32 @@
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+extend-exclude = ["migrations"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.ruff.lint]
+ignore = ["D100", "D101"]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "D",
+    "UP",
+    "B",
+    "A",
+    "C4",
+    "T20",
+    "SIM",
+    "G",
+    "DJ",
+    "D401",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
