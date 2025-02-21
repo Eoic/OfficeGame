@@ -2,8 +2,9 @@ import os
 
 from .settings import *  # noqa: F403
 
-DEBUG = False
+DEBUG = True
 SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+ALLOWED_HOSTS = ["*"]
 
 # Static assets.
 STATIC_ROOT = BASE_DIR / "build"  # noqa: F405
